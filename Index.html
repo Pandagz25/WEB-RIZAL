@@ -102,68 +102,6 @@
       cursor: not-allowed;
     }
 
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.95);
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .dragon-loader {
-      width: 100px;
-      height: 100px;
-      animation: spin 2s linear infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .info-box {
-      display: none;
-      max-width: 500px;
-    }
-
-    .info-box a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: teal;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .info-box a:hover {
-      background-color: darkcyan;
-    }
-
-    .description {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #ddd;
-    }
-
-    .close-btn {
-      margin-top: 25px;
-      background: crimson;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
     footer {
       display: flex;
       justify-content: space-around;
@@ -197,42 +135,27 @@
   </p>
 
   <div class="container" id="appList">
-    <div class="item" onclick="showInfo('Spotify', 'https://play.google.com/store/apps/details?id=com.spotify.music', 'Aplikasi streaming musik terbesar di dunia. Dengarkan jutaan lagu dari berbagai genre.')">
-      <img src="https://www.google.com/search?client=ms-android-xiaomi-rev1&sca_esv=8e4cf1de0c31390d&sxsrf=AE3TifPXfkynPgDfuZG7p1MSYkvEqeQPhg:1751319781273&udm=2&fbs=AIIjpHwAiESs-oUzh811bss1J-ufOpF5_cn65vibe4iaYvhRg3zsbQ_RA3qRmc9WO8e0s1ozDbwLsRMosJuP30mdJ3hSD3Z5FMJUAAaUnBsQ2fpCJamqyDzmqQzhlhjnNk4PHRPZdVioA08OnT0NZraYynoub60ixacUjNe5khhYbZwCYVyvz1k5fAhe_77BXjDS11nTKsgZFmk8Q7G5_uszbFTSWrUU9UlGzJEi0e812XECPU48KTY&q=spotify&sa=X&sqi=2&ved=2ahUKEwjQv83LjpqOAxVzzTgGHYnsPNMQtKgLegQIGxAB&biw=501&bih=946&dpr=2.16#sv=CAMS8QQa0QQKgwIKuQEStgEKd0FMa3RfdkZZMTJla3RPU1lqdEM1YkFuZnM0SkxTa1ZHWGFKa1dkT3hLNFR1VEYzTjBsQ24tb0FuWmZYTnJkd0pKX1ZaTkpQV3hndHVZbkxPUkZmdVYtNWwyLUZ4MUprZWllUWpWV2Z6XzJkMFBjMW1Ka1c1SU9vEhc1Z1JqYU83N0xmLVc0LUVQMmVlVWtRTRoiQUZNQUdHb2pyY2NkcmJ6enk0THVDN3JQck1Rd1pHUWR3QRIDODQ5GgEzIgwKAXESB3Nwb3RpZnkiBwoDdGJzEgAiJgoEZXFsZBIeQ2dJSUFCQUFPZ1FJQUJBQVZjc2UzVDV0dGNZTlBnErYCCs8BEswBCowBQUxrdF92RVRqYTBYMFRwVVMwQUt3WVB5S1FDNjRabkdyY29WRHQyVXo5aXlYWlhwS2lBR3A5X0lTZzVrZ3l2U0dES0NGUGh3bWJoaEdnSE9pQ1VxWkk0VExMWm9HU0c1d3lUUUp0ei1WX3VaTDRwRWlkdTg5X3poWmhQdVhZNWtidjNhMW1hTk9GT1cSFzVnUmphTzc3TGYtVzQtRVAyZWVVa1FNGiJBRk1BR0dxTDdWOGhSbjFzM0NRUlBNdXlWWTJhYXR0STFREgQ0Njk4GgEzIhgKBmltZ2RpaRIOQTRFV2VFSHNOSDloYU0iFwoFZG9jaWQSDlNXYXVlaWxrUm9HSi1NIiYKBGVxbGQSHkNnSUlBQkFBT2dRSUFCQUFWY3NlM1Q1dHRjWU5QZyoQZS1BNEVXZUVIc05IOWhhTSAEKhcKAXMSEGUtQTRFV2VFSHNOSDloYU0YATABGAcg18bQzw8wAUAC" alt="Spotify">
+    <div class="item" onclick="window.location.href='1.html'">
+      <img src="https://seeklogo.com/images/S/spotify-logo-331C7ADCA4-seeklogo.com.png" alt="Spotify">
     </div>
-    <div class="item" onclick="showInfo('Netflix', 'https://play.google.com/store/apps/details?id=com.netflix.mediaclient', 'Tonton film, serial TV, dan dokumenter secara streaming tanpa batas.')">
+    <div class="item" onclick="window.location.href='2.html'">
       <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg" alt="Netflix">
     </div>
-    <div class="item" onclick="showInfo('CapCut', 'https://play.google.com/store/apps/details?id=com.lemon.lvoverseas', 'Editor video populer yang mudah digunakan, cocok untuk konten kreator.')">
+    <div class="item" onclick="window.location.href='3.html'">
       <img src="https://seeklogo.com/images/C/capcut-logo-0B98C3D35F-seeklogo.com.png" alt="Capcut">
     </div>
-    <div class="item" onclick="showInfo('Aling Mantion', 'https://play.google.com/store', 'Aplikasi sosial buatan lokal untuk mention dan tagging kreatif.')">
+    <div class="item" onclick="window.location.href='4.html'">
       <img src="https://via.placeholder.com/200x200.png?text=Aling+Mantion" alt="Aling Mantion">
     </div>
-    <div class="item" onclick="showInfo('Meitu', 'https://play.google.com/store/apps/details?id=com.mt.mtxx.mtxx', 'Aplikasi edit foto dan kamera kecantikan yang populer di Asia.')">
+    <div class="item" onclick="window.location.href='5.html'">
       <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/fb/b1/ed/fbb1edf5-2f4b-4bd5-3b3b-4b06dfbd40b3/source/512x512bb.jpg" alt="Meitu">
     </div>
     <div class="item coming-soon">
       COMING<br>SOON
     </div>
   </div>
-  <h1>hai</h1>
-  <div class="overlay" id="overlay">
-    <svg class="dragon-loader" viewBox="0 0 64 64" fill="limegreen" xmlns="http://www.w3.org/2000/svg" id="dragon">
-      <path d="M32 2C18 2 8 16 12 30s20 20 20 30c0-10 18-12 20-30S46 2 32 2zM32 12a6 6 0 110 12 6 6 0 010-12z"/>
-    </svg>
-
-    <div class="info-box" id="infoBox">
-      <h2 id="appTitle"></h2>
-      <a id="premiumLink" target="_blank">Unduh Premium</a>
-      <a id="normalLink" target="_blank">Unduh Biasa</a>
-      <div class="description" id="description"></div>
-      <button class="close-btn" onclick="closeOverlay()">Tutup</button>
-    </div>
-  </div>
 
   <div id="clock">Loading time...</div>
-
 
   <footer>
     <div class="icon" onclick="scrollToTop()">🏠<br>Home</div>
@@ -240,30 +163,6 @@
   </footer>
 
   <script>
-    function showInfo(name, playstoreLink, descriptionText) {
-      const overlay = document.getElementById('overlay');
-      const infoBox = document.getElementById('infoBox');
-      const dragon = document.getElementById('dragon');
-
-      overlay.style.display = 'flex';
-      infoBox.style.display = 'none';
-      dragon.style.display = 'block';
-
-      setTimeout(() => {
-        document.getElementById('appTitle').innerText = name;
-        document.getElementById('premiumLink').href = 'https://lynk.id/pandstore';
-        document.getElementById('normalLink').href = playstoreLink;
-        document.getElementById('description').innerText = descriptionText;
-
-        dragon.style.display = 'none';
-        infoBox.style.display = 'block';
-      }, 2000);
-    }
-
-    function closeOverlay() {
-      document.getElementById('overlay').style.display = 'none';
-    }
-
     function updateClock() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString();
@@ -283,4 +182,4 @@
   </script>
 
 </body>
-  </html>
+</html>
