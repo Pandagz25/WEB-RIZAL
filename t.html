@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APK PREMIUM</title>
+  <style>
+    :root {
+      --bg: #111;
+      --text: #fff;
+      --border: #fff;
+      --footer: #222;
+    }
+    body.light-mode {
+      --bg: #f4f4f4;
+      --text: #111;
+      --border: #222;
+      --footer: #ddd;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0 10px;
+    }
+    .intro {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 20px 20px;
+      flex: 1;
+    }
+    .item {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      width: 250px;
+      height: 250px;
+      border: 3px solid var(--border);
+      border-radius: 12px;
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .coming-soon {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      background-color: #444;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      padding: 30px;
+      text-align: center;
+    }
+    .dragon-loader {
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .info-box {
+      display: none;
+      max-width: 500px;
+    }
+    .info-box a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: teal;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .description {
+      margin-top: 20px;
+    }
+    .close-btn {
+      margin-top: 20px;
+      background: crimson;
+      padding: 10px 20px;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: var(--footer);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .icon {
+      text-align: center;
+      cursor: pointer;
+    }
+    #clock {
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      font-size: 14px;
+    }
+    button[type="submit"] {
+      background-color: teal;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Aplikasi Populer</h1>
+  <p class="intro">Website ini dibuat oleh <strong>Johan</strong>, siswa kelas <strong>7D SMPN 8 Kota Bekasi</strong> yang suka belajar teknologi dan ingin berbagi aplikasi bermanfaat.</p>
+
+  <div class="container" id="appList">
+    <div class="item" onclick="showInfo('Spotify', 'https://play.google.com/store/apps/details?id=com.spotify.music', 'Streaming musik dari seluruh dunia.')">
+      <img src="https://seeklogo.com/images/S/spotify-logo-331C7ADCA4-seeklogo.com.png" alt="Spotify">
+    </div>
+    <div class="item" onclick="showInfo('Netflix', 'https://play.google.com/store/apps/details?id=com.netflix.mediaclient', 'Tonton film dan serial TV terbaik.')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg" alt="Netflix">
+    </div>
+    <div class="item" onclick="showInfo('CapCut', 'https://play.google.com/store/apps/details?id=com.lemon.lvoverseas', 'Edit video cepat dan mudah.')">
+      <img src="https://seeklogo.com/images/C/capcut-logo-0B98C3D35F-seeklogo.com.png" alt="CapCut">
+    </div>
+    <div class="item" onclick="showInfo('Aling Mantion', 'https://play.google.com/store', 'Mention orang-orang terdekatmu!')">
+      <img src="https://via.placeholder.com/250x250?text=Aling+Mantion" alt="Aling Mantion">
+    </div>
+    <div class="item" onclick="showInfo('Meitu', 'https://play.google.com/store/apps/details?id=com.mt.mtxx.mtxx', 'Edit foto dan wajah jadi cantik.')">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/fb/b1/ed/fbb1edf5-2f4b-4bd5-3b3b-4b06dfbd40b3/source/512x512bb.jpg" alt="Meitu">
+    </div>
+    <div class="item coming-soon">COMING<br>SOON</div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <svg class="dragon-loader" viewBox="0 0 64 64" fill="limegreen" xmlns="http://www.w3.org/2000/svg" id="dragon">
+      <path d="M32 2C18 2 8 16 12 30s20 20 20 30c0-10 18-12 20-30S46 2 32 2zM32 12a6 6 0 110 12 6 6 0 010-12z"/>
+    </svg>
+    <div class="info-box" id="infoBox">
+      <h2 id="appTitle"></h2>
+      <a id="premiumLink" target="_blank">Unduh Premium</a>
+      <a id="normalLink" target="_blank">Unduh Biasa</a>
+      <div class="description" id="description"></div>
+      <button class="close-btn" onclick="closeOverlay()">Tutup</button>
+    </div>
+  </div>
+
+  <h2 style="text-align:center;margin-top:30px">Hubungi Kami</h2>
+  <form action="hubungi.php" method="POST">
+    <input type="text" name="nama" placeholder="Nama" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <textarea name="pesan" placeholder="Pesan..." rows="5" required></textarea>
+    <button type="submit">Kirim</button>
+  </form>
+
+  <div id="clock">Waktu sekarang: ...</div>
+
+  <footer>
+    <div class="icon" onclick="scrollToTop()">🏠 Home</div>
+    <div class="icon" onclick="toggleMode()">⚙️ Mode</div>
+  </footer>
+
+  <script>
+    function showInfo(name, playstoreLink, descriptionText) {
+      const overlay = document.getElementById('overlay');
+      const infoBox = document.getElementById('infoBox');
+      const dragon = document.getElementById('dragon');
+
+      overlay.style.display = 'flex';
+      infoBox.style.display = 'none';
+      dragon.style.display = 'block';
+
+      setTimeout(() => {
+        document.getElementById('appTitle').innerText = name;
+        document.getElementById('premiumLink').href = 'https://lynk.id/pandstore';
+        document.getElementById('normalLink').href = playstoreLink;
+        document.getElementById('description').innerText = descriptionText;
+
+        dragon.style.display = 'none';
+        infoBox.style.display = 'block';
+      }, 2000);
+    }
+
+    function closeOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString();
+      document.getElementById('clock').innerText = 'Waktu sekarang: ' + timeStr;
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
