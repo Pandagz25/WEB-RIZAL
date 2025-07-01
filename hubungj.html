@@ -1,7 +1,140 @@
-<h2 style="text-align:center;margin-top:30px">Hubungi Kami</h2>
-  <form action="hubungi.php" method="POST">
-    <input type="text" name="nama" placeholder="Nama" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="pesan" placeholder="Pesan..." rows="5" required></textarea>
-    <button type="submit">Kirim</button>
-  </form>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - APK PREMIUM</title>
+    <style>
+        :root {
+            --bg: #111;
+            --text: #fff;
+            --border: #fff;
+            --footer: #222;
+        }
+        body.light-mode {
+            --bg: #f4f4f4;
+            --text: #111;
+            --border: #222;
+            --footer: #ddd;
+        }
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu {
+            background-color: var(--footer);
+            padding: 10px 20px;
+        }
+        .menu ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 20px;
+        }
+        .menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .menu a:hover {
+            opacity: 0.8;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 30px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text);
+        }
+        button {
+            background-color: teal;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        footer {
+            background-color: var(--footer);
+            padding: 20px;
+            text-align: center;
+        }
+        #clock {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="hubungj.html">📞 Hubungi</a></li>
+            <li><a href="#" onclick="toggleMode()">⚙️ Mode</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Hubungi Kami</h1>
+        <form>
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+    </main>
+
+    <footer>
+        <div>Website ini dibuat oleh Johan, siswa kelas 7D SMPN 8 Kota Bekasi</div>
+        <div id="clock"></div>
+    </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            localStorage.setItem('lightMode', isLightMode);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString();
+            document.getElementById('clock').innerText = 'Waktu sekarang: ' + timeStr;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('lightMode') === 'true') {
+                document.body.classList.add('light-mode');
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+        });
+    </script>
+</body>
+</html>
