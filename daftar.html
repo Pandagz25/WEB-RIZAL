@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
+      background: linear-gradient(to right, #43cea2, #185a9d);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,17 +15,18 @@
       margin: 0;
     }
 
-    .form-box {
-      background-color: #fff;
+    .container {
+      background: #fff;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      width: 90%;
+      border-radius: 10px;
+      width: 100%;
       max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
     h2 {
       text-align: center;
+      margin-bottom: 20px;
       color: #333;
     }
 
@@ -33,79 +34,79 @@
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #ccc;
       border-radius: 6px;
+      border: 1px solid #ccc;
     }
 
     button {
       width: 100%;
       padding: 12px;
-      background-color: #0072ff;
-      color: white;
+      background: teal;
       border: none;
+      color: white;
+      font-weight: bold;
       border-radius: 6px;
-      font-size: 16px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     button:hover {
-      background-color: #005dc1;
+      background: darkcyan;
     }
 
-    .back {
-      margin-top: 10px;
+    a {
+      display: block;
       text-align: center;
-    }
-
-    .back a {
-      color: #0072ff;
+      margin-top: 15px;
+      color: #007bff;
       text-decoration: none;
     }
 
-    .back a:hover {
+    a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <div class="form-box">
-    <h2>Buat Akun Baru</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="register()">Daftar</button>
-    <div class="back">
-      Sudah punya akun? <a href="login.html">Masuk</a>
-    </div>
-  </div>
+<div class="container">
+  <h2>Daftar Akun</h2>
+  <input type="email" id="email" placeholder="Email" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <button id="daftarBtn" type="button">Daftar</button>
+  <a href="login.html">Sudah punya akun? Masuk</a>
+</div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyB4ZFXFNcaKYexJ8riZdmJd2mtth0Q2LL0",
-      authDomain: "login-11d3f.firebaseapp.com",
-      projectId: "login-11d3f",
-      appId: "1:541270325754:web:22763c8edfc5f3e4e40c43"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyB4ZFXFNcaKYexJ8riZdmJd2mtth0Q2LL0",
+    authDomain: "login-11d3f.firebaseapp.com",
+    projectId: "login-11d3f",
+    storageBucket: "login-11d3f.appspot.com",
+    messagingSenderId: "541270325754",
+    appId: "1:541270325754:web:22763c8edfc5f3e4e40c43"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-    function register() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          alert("Akun berhasil dibuat!");
-          window.location.href = "login.html";
-        })
-        .catch(error => {
-          alert("Gagal daftar: " + error.message);
-        });
-    }
-  </script>
+  document.getElementById("daftarBtn").addEventListener("click", () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Akun berhasil dibuat!");
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        alert("Gagal mendaftar: " + error.message);
+      });
+  });
+</script>
 
 </body>
 </html>
