@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0072ff;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .actions a {
+      color: #0072ff;
+      text-decoration: none;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #005ccc;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .register-link a {
+      color: #0072ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Masuk</h2>
+    <form onsubmit="login(event)">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <div class="actions">
+        <label><input type="checkbox" id="rememberMe"> Ingat saya</label>
+        <a href="lupa.html">Lupa Password?</a>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+      Belum punya akun? <a href="daftar.html">Daftar di sini</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB4ZFXFNcaKYexJ8riZdmJd2mtth0Q2LL0",
+      authDomain: "login-11d3f.firebaseapp.com",
+      projectId: "login-11d3f",
+      appId: "1:541270325754:web:22763c8edfc5f3e4e40c43"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.login = async function(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const remember = document.getElementById("rememberMe").checked;
+
+      const persistence = remember ? browserLocalPersistence : browserSessionPersistence;
+
+      try {
+        await setPersistence(auth, persistence);
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("Login berhasil!");
+        window.location.href = "index.html"; // arahkan ke halaman utama
+      } catch (error) {
+        alert("Login gagal: " + error.message);
+      }
+    }
+  </script>
+
+</body>
+</html>
