@@ -2,67 +2,108 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hubungi Saya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hubungi Kami</title>
   <style>
+    :root {
+      --primary: #007bff;
+      --primary-dark: #0056b3;
+      --bg: #f4f4f4;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: sans-serif;
-      background: linear-gradient(to right, #1f4037, #99f2c8);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
       margin: 0;
       padding: 0;
+      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
+
     .form-container {
       background-color: #fff;
       padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    input, textarea {
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+      max-width: 500px;
     }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: var(--primary);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
     button {
       width: 100%;
-      background-color: teal;
+      padding: 14px;
+      background-color: var(--primary);
       color: white;
-      padding: 12px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: darkcyan;
+      background-color: var(--primary-dark);
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
   <div class="form-container">
-    <h2>Hubungi Saya</h2>
+    <h1>Hubungi Kami</h1>
     <form action="https://formsubmit.co/pandagz225@gmail.com" method="POST">
-      <input type="text" name="nama" placeholder="Nama kamu" required>
-      <input type="email" name="email" placeholder="Email kamu" required>
-      <textarea name="pesan" placeholder="Tulis pesan kamu..." rows="5" required></textarea>
-      <input type="hidden" name="_captcha" value="false">
+      <!-- Redirect setelah kirim -->
       <input type="hidden" name="_next" value="https://web-zalxx.netlify.app/terkirim.html">
+      <!-- Nonaktifkan captcha FormSubmit -->
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="nama" placeholder="Nama lengkap" required>
+      <input type="email" name="email" placeholder="Alamat Email" required>
+      <textarea name="pesan" placeholder="Tulis pesan kamu di sini..." required></textarea>
       <button type="submit">Kirim Pesan</button>
     </form>
-  </div>
 
+    <a href="index.html" class="back-home">⬅ Kembali ke Beranda</a>
+  </div>
 </body>
 </html>
