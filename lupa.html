@@ -2,7 +2,82 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lupa Password</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-box {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff5e78;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e74c6c;
+    }
+
+    .back {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .back a {
+      color: #ff5e78;
+      text-decoration: none;
+    }
+
+    .back a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <h2>Lupa Password?</h2>
+    <input type="email" id="email" placeholder="Masukkan email anda">
+    <button onclick="resetPassword()">Kirim Email Reset</button>
+    <div class="back">
+      Kembali ke <a href="login.html">Login</a>
+    </div>
+  </div>
+
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
     import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
@@ -17,24 +92,17 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    window.resetPassword = async function(event) {
-      event.preventDefault();
+    function resetPassword() {
       const email = document.getElementById("email").value;
-      try {
-        await sendPasswordResetEmail(auth, email);
-        alert("Email reset password telah dikirim ke: " + email);
-      } catch (error) {
-        alert("Gagal mengirim email: " + error.message);
-      }
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          alert("Link reset password telah dikirim ke email kamu!");
+        })
+        .catch((error) => {
+          alert("Gagal kirim email: " + error.message);
+        });
     }
   </script>
-</head>
-<body>
-  <h2>Reset Password</h2>
-  <form onsubmit="resetPassword(event)">
-    <input type="email" id="email" placeholder="Masukkan Email" required /><br/>
-    <button type="submit">Kirim Link Reset</button>
-  </form>
-  <p><a href="login.html">Kembali ke Login</a></p>
+
 </body>
 </html>
