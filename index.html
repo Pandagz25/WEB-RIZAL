@@ -5,6 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>APK PREMIUM</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f9fa;
+    }
+
+    .promo-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .promo-text {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .promo-text h1 {
+      font-size: 28px;
+      color: #0056b3;
+    }
+
+    .promo-text p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .promo-text .btn {
+      margin-top: 20px;
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .promo-img {
+      flex: 1;
+      text-align: center;
+    }
+
+    .promo-img img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .promo-container {
+        flex-direction: column;
+      }
+    }
+    
     :root {
       --bg: #111;
       --text: #fff;
@@ -215,6 +275,22 @@
     <div class="item coming-soon">COMING<br>SOON</div>
   </div>
 
+    <div class="promo-container">
+    <div class="promo-text">
+      <h1>🚀 Mulai Perjalananmu Jadi Web Developer!</h1>
+      <p>
+        Ingin bisa membuat website sendiri? Buku <strong>“Langkah Awal Jadi Web Developer”</strong> adalah panduan sempurna untuk kamu yang baru mulai belajar coding.  
+        Pelajari HTML, CSS, dan JavaScript dengan cara yang mudah, menyenangkan, dan langsung praktik!
+      </p>
+      <p>
+        Cocok untuk pelajar, pemula, atau siapa pun yang ingin jadi programmer web.
+      </p>
+      <a class="btn" href="https://lynk.id/pandstore">📘 Dapatkan Sekarang</a>
+    </div>
+    <div class="promo-img">
+      <img src="buku.png" alt="Buku Langkah Awal Jadi Web Developer">
+    </div>
+    </div>
 
   <div id="clock">Loading time...</div>
 
