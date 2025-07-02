@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lupa Password</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB4ZFXFNcaKYexJ8riZdmJd2mtth0Q2LL0",
+      authDomain: "login-11d3f.firebaseapp.com",
+      projectId: "login-11d3f",
+      appId: "1:541270325754:web:22763c8edfc5f3e4e40c43"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.resetPassword = async function(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      try {
+        await sendPasswordResetEmail(auth, email);
+        alert("Email reset password telah dikirim ke: " + email);
+      } catch (error) {
+        alert("Gagal mengirim email: " + error.message);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Reset Password</h2>
+  <form onsubmit="resetPassword(event)">
+    <input type="email" id="email" placeholder="Masukkan Email" required /><br/>
+    <button type="submit">Kirim Link Reset</button>
+  </form>
+  <p><a href="login.html">Kembali ke Login</a></p>
+</body>
+</html>
