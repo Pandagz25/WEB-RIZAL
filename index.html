@@ -5,6 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>APK PREMIUM</title>
   <style>
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* Tombol hamburger */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Animasi garis jadi X */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 60px;
+  transition: 0.4s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 15px 20px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+    
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
