@@ -5,157 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>APK PREMIUM</title>
   <style>
- * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-/* Tombol hamburger */
-.menu-toggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 30px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.menu-toggle span {
-  height: 4px;
-  width: 100%;
-  background-color: #333;
-  border-radius: 2px;
-  transition: 0.3s ease;
-}
-
-/* Animasi garis jadi X */
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Menu sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 220px;
-  height: 100%;
-  background-color: white;
-  color: white;
-  padding-top: 60px;
-  transition: 0.4s ease;
-  z-index: 1000;
-}
-
-.sidebar.active {
-  left: 0;
-}
-
-.sidebar ul {
-  list-style: none;
-}
-
-.sidebar ul li {
-  padding: 15px 20px;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  transition: background 0.3s;
-}
-
-.sidebar ul li a:hover {
-  background-color: #444;
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-}
-    
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f8f9fa;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .promo-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-
-    .promo-text {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .promo-text h1 {
-      font-size: 28px;
-      color: #0056b3;
-    }
-
-    .promo-text p {
-      font-size: 18px;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .promo-text .btn {
-      margin-top: 20px;
-      display: inline-block;
-      background-color: #007bff;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .promo-img {
-      flex: 1;
-      text-align: center;
-    }
-
-    .promo-img img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .promo-container {
-        flex-direction: column;
-      }
-    }
-    
     :root {
       --bg: #111;
       --text: #fff;
@@ -170,50 +25,119 @@ body {
       --footer: #ddd;
     }
 
-
-        .menu {
-            background-color: var(--footer);
-            padding: 10px 20px;
-        }
-        .menu ul {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 20px;
-        }
-        .menu a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .menu a:hover {
-            opacity: 0.8;
-        }
-        main {
-            flex: 1;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       transition: 0.3s;
+      padding-top: 60px;
     }
 
+    /* === HEADER === */
+    .menu-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      height: 4px;
+      width: 100%;
+      background-color: #333;
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .btn-signin {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      z-index: 1001;
+      transition: background-color 0.3s;
+    }
+
+    .btn-signin:hover {
+      background-color: #0056b3;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 220px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 60px;
+      transition: 0.4s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 15px 20px;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #444;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* === PRODUK UTAMA === */
     h1 {
       text-align: center;
       margin: 20px 0 10px;
@@ -262,156 +186,145 @@ body {
     }
 
     .coming-soon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: #444;
       font-size: 20px;
       font-weight: bold;
       cursor: not-allowed;
     }
 
-    footer {
+    /* === SLIDER PROMO === */
+    .promo-slider {
       display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background-color: var(--footer);
-      padding: 15px 0;
-      border-top: 1px solid #444;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
     }
 
-    footer .icon {
-      font-size: 18px;
-      color: var(--text);
+    .promo-card {
+      min-width: 180px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
       text-align: center;
-      cursor: pointer;
-      user-select: none;
+      transition: transform 0.3s;
+      color: #000;
     }
 
+    .promo-card:hover {
+      transform: scale(1.05);
+    }
+
+    .promo-card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .promo-card h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .price {
+      font-size: 14px;
+    }
+
+    .price .old {
+      color: #888;
+      text-decoration: line-through;
+      margin-right: 8px;
+    }
+
+    .price .new {
+      color: #e53935;
+      font-weight: bold;
+    }
+
+    /* === JAM + FOOTER === */
     #clock {
       text-align: center;
       font-size: 14px;
       color: #aaa;
       padding: 10px 0;
     }
-
-    /* Form Hubungi */
-    .contact-section {
-      padding: 30px 20px;
-      background-color: #1c1c1c;
-    }
-
-    .contact-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input, textarea {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-    }
-
-    input:focus, textarea:focus {
-      outline: 2px solid teal;
-    }
-
-    button {
-      padding: 12px;
-      background-color: teal;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: darkcyan;
-    }
   </style>
 </head>
 <body>
 
+  <!-- Tombol Hamburger -->
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Tombol Sign In -->
+  <a href="#" class="btn-signin">Sign In</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">×</button>
+    <ul>
+      <h1>RIZALSTORE</h1>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a onclick="toggleMode()">dark/light</a></li>
+      <li><a href="hubungj.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Konten Utama -->
   <h1>Aplikasi Populer</h1>
   <p class="intro">
-    Website ini dibuat oleh <strong>Johan</strong>, siswa kelas <strong>7D SMPN 8 Kota Bekasi</strong> yang suka belajar teknologi dan ingin berbagi aplikasi bermanfaat. Semoga membantu dan bermanfaat untuk kalian semua! 😄
+    Website ini dibuat oleh <strong>Johan</strong>, siswa kelas <strong>7D SMPN 8 Kota Bekasi</strong> yang suka belajar teknologi dan ingin berbagi aplikasi bermanfaat.
   </p>
 
   <div class="container" id="appList">
-    <div class="item" onclick="window.location.href='1.html'">
-      <img src="spotify.png" alt="Spotify" width="200">
-    </div>
-    <div class="item" onclick="window.location.href='2.html'">
-      <img src="netflix.jpeg" alt="Netflix" width="200">
-    </div>
-    <div class="item" onclick="window.location.href='3.html'">
-      <img src="capcut.png" alt="capcut" width="200">  
-    </div>
-    <div class="item" onclick="window.location.href='4.html'">
-      <img src="alight mation.png" alt="alight mantion" width="200">
-    </div>
-    <div class="item" onclick="window.location.href='5.html'">
-      <img src="meitu.png" alt="meitu" width="200"> 
-    </div>
+    <div class="item" onclick="window.location.href='1.html'"><img src="spotify.png" alt="Spotify"></div>
+    <div class="item" onclick="window.location.href='2.html'"><img src="netflix.jpeg" alt="Netflix"></div>
+    <div class="item" onclick="window.location.href='3.html'"><img src="capcut.png" alt="CapCut"></div>
+    <div class="item" onclick="window.location.href='4.html'"><img src="alight mation.png" alt="Alight Motion"></div>
+    <div class="item" onclick="window.location.href='5.html'"><img src="meitu.png" alt="Meitu"></div>
     <div class="item coming-soon">COMING<br>SOON</div>
   </div>
 
-    <div class="promo-container">
-    <div class="promo-text">
-      <h1>🚀 Mulai Perjalananmu Jadi Web Developer!</h1>
-      <p>
-        Ingin bisa membuat website sendiri? Buku <strong>“Langkah Awal Jadi Web Developer”</strong> adalah panduan sempurna untuk kamu yang baru mulai belajar coding.  
-        Pelajari HTML, CSS, dan JavaScript dengan cara yang mudah, menyenangkan, dan langsung praktik!
+  <h2 style="text-align:center; margin-top:40px;">🔥 Promo Spesial</h2>
+  <div class="promo-slider">
+    <div class="promo-card">
+      <img src="buku.jpg" alt="Produk 1">
+      <h3>Buku langkah awal menjadi web dev</h3>
+      <p class="price">
+        <span class="old">Rp50.000</span>
+        <span class="new">Rp30.000</span>
       </p>
-      <p>
-        Cocok untuk pelajar, pemula, atau siapa pun yang ingin jadi programmer web.
-      </p>
-      <a class="btn" href="https://lynk.id/pandstore">📘 Dapatkan Sekarang</a>
     </div>
-    <div class="promo-img">
-      <img src="buku.png" alt="Buku Langkah Awal Jadi Web Developer">
-    </div>
-    </div>
+    <!-- Tambahkan produk lain di sini -->
+  </div>
 
   <div id="clock">Loading time...</div>
 
-   <!-- Tombol Hamburger -->
-    <nav class="sidebar" id="sidebar">
-<!-- Tombol Close (X) -->
-<button class="close-btn" id="close-btn">×</button>
-    <ul>
-      <h1>RIZALSTORE</h1>
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Tentang</a></li>
-      <li><a href="#">Layanan</a></li>
-      <li><a href="#">Kontak</a></li>
-    </ul>
-    </nav>
-
   <script>
     const toggle = document.getElementById("menu-toggle");
-  const sidebar = document.getElementById("sidebar");
-  const closeBtn = document.getElementById("close-btn");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("close-btn");
 
-  toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-    toggle.classList.toggle("open");
-  });
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      toggle.classList.toggle("open");
+    });
 
-  closeBtn.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    toggle.classList.remove("open");
-  });
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      toggle.classList.remove("open");
+    });
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+}
     
     function updateClock() {
       const now = new Date();
@@ -419,23 +332,8 @@ body {
       document.getElementById('clock').innerText = 'Waktu sekarang: ' + timeStr;
     }
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-    }
-
-    function handleContact(event) {
-      event.preventDefault();
-      alert("Terima kasih! Pesanmu sudah dikirim.");
-      event.target.reset();
-    }
-
     setInterval(updateClock, 1000);
     updateClock();
   </script>
-
 </body>
 </html>
