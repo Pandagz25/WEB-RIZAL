@@ -385,16 +385,34 @@ body {
 
   <div id="clock">Loading time...</div>
 
- <nav class="menu">
-        <ul>
-            <li><a href="index.html" onclick="scrollToTop()">🏠 Home</a></li>
-            <li><a href="hubungj.html">📞 Hubungi</a></li>
-            <li><a href="#" onclick="toggleMode()">⚙️ Mode</a></li>
-          <li><a href="login.html">📁LOGI</a></li>
-        </ul>
+   <!-- Tombol Hamburger -->
+    <nav class="sidebar" id="sidebar">
+<!-- Tombol Close (X) -->
+<button class="close-btn" id="close-btn">×</button>
+    <ul>
+      <h1>RIZALSTORE</h1>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Tentang</a></li>
+      <li><a href="#">Layanan</a></li>
+      <li><a href="#">Kontak</a></li>
+    </ul>
     </nav>
 
   <script>
+    const toggle = document.getElementById("menu-toggle");
+  const sidebar = document.getElementById("sidebar");
+  const closeBtn = document.getElementById("close-btn");
+
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    toggle.classList.toggle("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    toggle.classList.remove("open");
+  });
+    
     function updateClock() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString();
